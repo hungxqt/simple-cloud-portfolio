@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal landingpage of Hung Tran — cybersecurity learner, builder, and developer.">
+  <title>Hung Tran</title>
+   <link rel="icon" href="favicon.ico" sizes="any">
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #18181B;
+      --secondary: #3F3F46;
+      --cta: #2563EB;
+      --background: #FAFAFA;
+      --text: #09090B;
+      --muted: #475569;
+      --border: #E4E4E7;
+      --card: #FFFFFF;
+      --accent-1: #7C3AED;
+      --accent-2: #06B6D4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(124, 58, 237, 0.08), transparent 35%),
+        radial-gradient(circle at 85% 10%, rgba(6, 182, 212, 0.09), transparent 40%),
+        var(--background);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0.9rem;
+      z-index: 10;
+      padding-top: 0.7rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      padding: 0.7rem 1rem;
+      box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08);
+    }
+
+    .brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.35rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--secondary);
+      padding: 0.45rem 0.75rem;
+      border-radius: 10px;
+      transition: background-color 200ms ease-out, color 200ms ease-out;
+      cursor: pointer;
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: #EEF2FF;
+      color: var(--primary);
+      outline: none;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--primary);
+      border-radius: 10px;
+      padding: 0.42rem 0.62rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+      outline: none;
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.2rem;
+      align-items: center;
+      min-height: calc(100vh - 130px);
+      padding: 3.2rem 0 2rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid #C7D2FE;
+      border-radius: 999px;
+      color: #4338CA;
+      background: #EEF2FF;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.12;
+      margin: 0.9rem 0 1rem;
+    }
+
+    .muted {
+      color: var(--muted);
+      max-width: 56ch;
+      margin: 0;
+    }
+
+    .hero-quote {
+      margin: 0 0 0.9rem;
+      padding: 0.72rem 0.9rem;
+      border-left: 4px solid #93C5FD;
+      border-radius: 10px;
+      background: #F8FAFC;
+      color: #334155;
+      font-style: italic;
+      max-width: 56ch;
+    }
+
+    .hero-quote p {
+      margin: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.35rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      padding: 0.72rem 1.05rem;
+      border: 1px solid transparent;
+      transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out;
+      cursor: pointer;
+      font-size: 0.94rem;
+    }
+
+    .btn-primary {
+      background: var(--cta);
+      color: #fff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #1D4ED8;
+      outline: none;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+      outline: none;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 360px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: linear-gradient(155deg, #ffffff, #F8FAFC 48%, #F5F3FF);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(30, 41, 59, 0.12);
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .float-card {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 0.75rem 0.8rem;
+      box-shadow: 0 12px 24px rgba(30, 41, 59, 0.1);
+      backdrop-filter: blur(7px);
+      max-width: 240px;
+    }
+
+    .float-card strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.96rem;
+    }
+
+    .stats,
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.1rem;
+    }
+
+    .stats {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    .stat strong {
+      font-size: 1.15rem;
+      font-family: "Space Grotesk", sans-serif;
+      display: block;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    section {
+      padding: 1.4rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.35rem, 2.3vw, 1.95rem);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .project-card {
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem;
+      background: #fff;
+      transition: border-color 200ms ease-out, box-shadow 200ms ease-out, transform 200ms ease-out;
+      cursor: pointer;
+      display: block;
+    }
+
+    .project-card:hover,
+    .project-card:focus-visible {
+      border-color: #93C5FD;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.15);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-head strong {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1rem;
+    }
+
+    .tag {
+      color: #1E40AF;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 999px;
+      padding: 0.12rem 0.48rem;
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .socials {
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      text-decoration: none;
+      color: #0F172A;
+      border: 1px solid #CBD5E1;
+      background: #fff;
+      padding: 0.5rem 0.72rem;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: border-color 200ms ease-out, background-color 200ms ease-out;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .social-link:hover,
+    .social-link:focus-visible {
+      border-color: #60A5FA;
+      background: #F8FAFC;
+      outline: none;
+    }
+
+    [data-theme="dark"] {
+      --primary: #F8FAFC;
+      --secondary: #CBD5E1;
+      --cta: #60A5FA;
+      --background: #0B1220;
+      --text: #E2E8F0;
+      --muted: #E2E8F0;
+      --border: #1E293B;
+      --card: #0F172A;
+      --accent-1: #A78BFA;
+      --accent-2: #22D3EE;
+    }
+
+    [data-theme="dark"] body {
+      background:
+        radial-gradient(circle at 10% 15%, rgba(167, 139, 250, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 10%, rgba(34, 211, 238, 0.1), transparent 40%),
+        var(--background);
+    }
+
+    [data-theme="dark"] .nav {
+      background: rgba(15, 23, 42, 0.84);
+      box-shadow: 0 10px 32px rgba(2, 6, 23, 0.45);
+    }
+
+    [data-theme="dark"] .nav-links a:hover,
+    [data-theme="dark"] .nav-links a:focus-visible {
+      background: #1E293B;
+      color: #F8FAFC;
+    }
+
+    [data-theme="dark"] .theme-toggle {
+      background: #0B1220;
+      border-color: #334155;
+      color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .theme-toggle:hover,
+    [data-theme="dark"] .theme-toggle:focus-visible {
+      background: #111827;
+      border-color: #475569;
+    }
+
+    [data-theme="dark"] .chip {
+      border-color: #4338CA;
+      color: #C7D2FE;
+      background: rgba(67, 56, 202, 0.25);
+    }
+
+    [data-theme="dark"] .btn-secondary {
+      background: #0F172A;
+      color: #E2E8F0;
+      border-color: #334155;
+    }
+
+    [data-theme="dark"] .btn-secondary:hover,
+    [data-theme="dark"] .btn-secondary:focus-visible {
+      background: #111827;
+      border-color: #475569;
+    }
+
+    [data-theme="dark"] .hero-quote {
+      background: #0F172A;
+      color: #CBD5E1;
+      border-left-color: #60A5FA;
+    }
+
+    [data-theme="dark"] .hero-visual {
+      background: linear-gradient(155deg, #0F172A, #111827 48%, #1E1B4B);
+    }
+
+    [data-theme="dark"] .hero-visual .svg-g1-start {
+      stop-color: #A78BFA;
+      stop-opacity: 0.95;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-g1-end {
+      stop-color: #22D3EE;
+      stop-opacity: 0.92;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-g2-start {
+      stop-color: #60A5FA;
+      stop-opacity: 0.95;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-g2-end {
+      stop-color: #818CF8;
+      stop-opacity: 0.9;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-grid-bg {
+      fill: #0B1220;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-grid-line {
+      stroke: #334155;
+      stroke-width: 0.8;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-orb-1 {
+      opacity: 0.5;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-orb-2 {
+      opacity: 0.42;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-wave-fill {
+      opacity: 0.48;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-wave-line {
+      stroke: #93C5FD;
+      opacity: 0.85;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-panel-shell {
+      fill: #111827;
+      stroke: #334155;
+      opacity: 0.96;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-panel-line-soft {
+      fill: #334155;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-panel-line-strong {
+      fill: #60A5FA;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-panel-card-1 {
+      fill: #1E293B;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-panel-card-2 {
+      fill: #1D4ED8;
+    }
+
+    [data-theme="dark"] .hero-visual .svg-panel-card-3 {
+      fill: #3730A3;
+    }
+
+    [data-theme="dark"] .float-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: #334155;
+      box-shadow: 0 12px 24px rgba(2, 6, 23, 0.45);
+    }
+
+    [data-theme="dark"] .project-card,
+    [data-theme="dark"] .social-link,
+    [data-theme="dark"] .stats,
+    [data-theme="dark"] .section-card {
+      background: #0F172A;
+      border-color: #334155;
+    }
+
+    [data-theme="dark"] .social-link {
+      color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .hero-quote {
+      color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .tag {
+      color: #BFDBFE;
+      background: #1E3A8A;
+      border-color: #1D4ED8;
+    }
+
+    [data-theme="dark"] .social-link:hover,
+    [data-theme="dark"] .social-link:focus-visible {
+      background: #111827;
+      border-color: #475569;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        min-height: auto;
+        padding-top: 2.2rem;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .nav-controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="container nav-wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#home">Hung Tran</a>
+      <div class="nav-controls">
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#connect">Connect</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3c-.34.57-.53 1.24-.53 1.95a7 7 0 0 0 7 7c.71 0 1.38-.19 1.95-.53.24.43.37.89.37 1.37Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span id="theme-toggle-label">Dark mode</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="6" fill="#4F46E5"></circle>
+          </svg>
+          Cybersecurity • DevOps • Cloud
+        </span>
+        <h1 id="hero-title">Xin chào, mình là</h1>
+        <h1 id="hero-title">Trần Quốc Hùng</h1>
+        <blockquote class="hero-quote" aria-label="Personal quote">
+          <p>“Building secure things that actually feel human.”</p>
+        </blockquote>
+        <p class="muted">Mình tập trung vào web security, cloud learning paths, và các tool thực chiến. Đây là trang tổng hợp nhanh những project và lộ trình mình đang theo đuổi.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore projects</a>
+          <a class="btn btn-secondary" href="./github/">View GitHub profile</a>
+        </div>
+
+        <div class="stats" aria-label="quick stats">
+          <div class="stat">
+            <strong>10+</strong>
+            <span>Learning tracks & labs</span>
+          </div>
+          <div class="stat">
+            <strong>7</strong>
+            <span>Focused project pages</span>
+          </div>
+          <div class="stat">
+            <strong>∞</strong>
+            <span>Curiosity-powered iterations</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-label="Decorative vector artwork">
+        <svg viewBox="0 0 600 420" role="img" aria-label="Abstract vector graphic with layered gradients and security-inspired grid">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop class="svg-g1-start" offset="0%" stop-color="#7C3AED" stop-opacity="0.9"></stop>
+              <stop class="svg-g1-end" offset="100%" stop-color="#06B6D4" stop-opacity="0.9"></stop>
+            </linearGradient>
+            <linearGradient id="g2" x1="1" x2="0" y1="0" y2="1">
+              <stop class="svg-g2-start" offset="0%" stop-color="#2563EB" stop-opacity="0.9"></stop>
+              <stop class="svg-g2-end" offset="100%" stop-color="#4F46E5" stop-opacity="0.85"></stop>
+            </linearGradient>
+            <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+              <path class="svg-grid-line" d="M 22 0 L 0 0 0 22" fill="none" stroke="#CBD5E1" stroke-width="0.7"></path>
+            </pattern>
+          </defs>
+
+          <rect class="svg-grid-bg" width="600" height="420" fill="url(#grid)"></rect>
+          <circle class="svg-orb-1" cx="470" cy="75" r="110" fill="url(#g1)" opacity="0.34"></circle>
+          <circle class="svg-orb-2" cx="155" cy="300" r="140" fill="url(#g2)" opacity="0.26"></circle>
+
+          <path class="svg-wave-fill" d="M80,230 C150,120 260,110 355,180 C430,235 505,220 560,165 L560,350 L80,350 Z" fill="url(#g1)" opacity="0.34"></path>
+          <path class="svg-wave-line" d="M50,185 C100,100 225,90 295,140 C355,180 420,175 500,120" fill="none" stroke="#4338CA" stroke-width="6" stroke-linecap="round" opacity="0.5"></path>
+
+          <g transform="translate(180,96)">
+            <rect class="svg-panel-shell" x="0" y="0" width="248" height="154" rx="14" fill="#FFFFFF" opacity="0.92" stroke="#E2E8F0"></rect>
+            <rect class="svg-panel-line-strong" x="18" y="20" width="80" height="10" rx="5" fill="#BFDBFE"></rect>
+            <rect class="svg-panel-line-soft" x="18" y="42" width="212" height="8" rx="4" fill="#E2E8F0"></rect>
+            <rect class="svg-panel-line-soft" x="18" y="58" width="170" height="8" rx="4" fill="#E2E8F0"></rect>
+            <rect class="svg-panel-card-1" x="18" y="82" width="96" height="54" rx="10" fill="#EEF2FF"></rect>
+            <rect class="svg-panel-card-2" x="124" y="82" width="106" height="22" rx="9" fill="#E0F2FE"></rect>
+            <rect class="svg-panel-card-3" x="124" y="114" width="106" height="22" rx="9" fill="#DBEAFE"></rect>
+          </g>
+        </svg>
+        <div class="float-card" aria-hidden="true">
+          <strong>Currently learning</strong>
+          AWS SAA-C03, secure coding patterns, and threat-driven design.
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" aria-labelledby="project-title">
+      <div class="section-head">
+        <h2 id="project-title">Achievements</h2>
+        <!-- <p class="muted">Prize and certificates overview.</p> -->
+      </div>
+
+      <p class="muted" style="margin-bottom: 0.7rem;"><strong>Project</strong></p>
+      <div class="projects">
+        <a class="project-card" href="./ids/">
+          <div class="project-head"><strong>IDS</strong><span class="tag">Project</span></div>
+          <p class="muted">Intrusion Detection project materials and practical notes.</p>
+        </a>
+        <a class="project-card" href="./ddos-inspector/">
+          <div class="project-head"><strong>DDoS Inspector</strong><span class="tag">Project</span></div>
+          <p class="muted">DDoS analysis project with attack-surface insights.</p>
+        </a>
+        <a class="project-card" href="./vocab-trans/">
+          <div class="project-head"><strong>Vocab Trans</strong><span class="tag">Project</span></div>
+          <p class="muted">Vocabulary translation tool for language learning.</p>
+        </a>
+      </div>
+
+      <p class="muted" style="margin: 1rem 0 0.7rem;"><strong>Prize</strong></p>
+      <div class="projects">
+        <a class="project-card" href="./hackathon/">
+          <div class="project-head"><strong>Hackathon</strong><span class="tag">Prize</span></div>
+          <p class="muted">Competition participation and prize-related highlights.</p>
+        </a>
+      </div>
+
+      <p class="muted" style="margin: 1rem 0 0.7rem;"><strong>Certificates</strong></p>
+      <div class="projects">
+        <a class="project-card" href="./coa/">
+          <div class="project-head"><strong>COA</strong><span class="tag">Certificate</span></div>
+          <p class="muted">Course certificate and completion details.</p>
+        </a>
+        <a class="project-card" href="./cs1/">
+          <div class="project-head"><strong>CS1</strong><span class="tag">Certificate</span></div>
+          <p class="muted">TryHackMe - Cyber Security 101</p>
+        </a>
+        <a class="project-card" href="./jpt/">
+          <div class="project-head"><strong>JPT</strong><span class="tag">Certificate</span></div>
+          <p class="muted">TryHackMe - Jr Penetration Tester</p>
+        </a>
+        <a class="project-card" href="./python/">
+          <div class="project-head"><strong>Python</strong><span class="tag">Certificate</span></div>
+          <p class="muted">Python certificate and related learning outcomes.</p>
+        </a>
+        <a class="project-card" href="./saa-c03/">
+          <div class="project-head"><strong>AWS SAA-C03</strong><span class="tag">Certificate</span></div>
+          <p class="muted">AWS Certified Solutions Architect - Associate</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="connect" aria-labelledby="connect-title">
+      <div class="section-head">
+        <h2 id="connect-title">Connect</h2>
+      </div>
+      <div class="socials">
+        <a class="social-link" href="./github/" aria-label="Open GitHub page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2.16c-3.2.7-3.87-1.54-3.87-1.54-.52-1.31-1.27-1.66-1.27-1.66-1.03-.71.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.3.95.1-.73.4-1.24.72-1.53-2.55-.29-5.24-1.27-5.24-5.67 0-1.25.44-2.28 1.17-3.08-.12-.29-.51-1.45.11-3.03 0 0 .95-.31 3.12 1.17a10.8 10.8 0 0 1 5.68 0c2.17-1.48 3.12-1.17 3.12-1.17.62 1.58.23 2.74.11 3.03.73.8 1.17 1.83 1.17 3.08 0 4.41-2.7 5.37-5.27 5.65.41.35.77 1.04.77 2.1v3.11c0 .31.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg>
+          GitHub
+        </a>
+        <a class="social-link" href="./linkedin/" aria-label="Open LinkedIn page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.49 2.49 0 0 0 2.5 6a2.49 2.49 0 0 0 2.48 2.5A2.5 2.5 0 1 0 4.98 3.5ZM2.75 9.75h4.46V21H2.75V9.75Zm7.2 0h4.27v1.53h.06c.6-1.08 2.06-2.22 4.24-2.22 4.54 0 5.38 2.99 5.38 6.88V21h-4.45v-4.48c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.72 1.17-1.72 2.37V21H9.95V9.75Z"></path></svg>
+          LinkedIn
+        </a>
+        <a class="social-link" href="./tryhackme/" aria-label="Open TryHackMe page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm4.64 7.2-1.92 9.6h-2.2l1.92-9.6h2.2Zm-6.36 0h2.2l-1.92 9.6h-2.2l1.92-9.6Z"></path></svg>
+          TryHackMe
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeLabel = document.getElementById('theme-toggle-label');
+      const root = document.documentElement;
+      const themeStorageKey = 'personal-page-theme';
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        const isDark = theme === 'dark';
+        themeToggle.setAttribute('aria-pressed', String(isDark));
+        themeLabel.textContent = isDark ? 'Light mode' : 'Dark mode';
+      }
+
+      const savedTheme = localStorage.getItem(themeStorageKey);
+      const initialTheme = savedTheme === 'dark' ? 'dark' : 'light';
+      applyTheme(initialTheme);
+
+      themeToggle.addEventListener('click', function () {
+        const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(nextTheme);
+        localStorage.setItem(themeStorageKey, nextTheme);
+      });
+    })();
+  </script>
+</body>
+</html>
